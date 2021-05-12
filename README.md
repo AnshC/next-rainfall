@@ -6,8 +6,8 @@ Set API_KEY as your OpenWeatherMap API key.
 Rename '.env_sample' to '.env' 
 
 ## NPM Packages utilized
-Nodemon
-Express
+Nodemon,
+Express,
 dotenv
 
 ## OpenWeatherMap API
