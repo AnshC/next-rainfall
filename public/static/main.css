@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Nunito:wght@400;600&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    color:white;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/default.png");
+    background-size: cover;
+}
+
+.current{
+    align-self: flex-start;
+    position: absolute;
+}
+
+.humidity, .wind{
+    display: flex;
+    align-items: center;
+}
+
+.humidity .icon{
+    width: 40px;
+    fill: white;
+}
+
+.wind .icon{
+    width: 40px;
+    fill: white;
+}
+
+.location{
+    display: flex;
+    align-self: flex-end;
+}
+
+.location *{
+    padding: 1vw;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 800px){
+    .location{
+        flex-direction: column;
+    }
+    .rain{
+        font-size: 30px !important;
+    }
+}
+
+.current *{
+    padding-left: 1vw;
+}
+
+#time{
+    font-size: 70px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+}
+
+.rain{
+    padding-top: 30vh;
+    font-size: 50px;
+    text-align: center;
+}
+
+#rain-type{
+    font-size: 30px;
+}
