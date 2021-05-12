@@ -3,7 +3,9 @@ const express = require('express');
 const app = express();
 const fetch = require('node-fetch')
 
-app.listen(3000, () => console.log('Server Started'));
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Starting Server at ${port}`));
 app.use(express.json());
 app.use("/", express.static("public"))
 
