@@ -1,4 +1,3 @@
-const appKey = "dcedf1e51bc082a1cd6fd18ea3f3e691";
 const degreeSymbol = '°';
 
 function fetchweather(){
@@ -8,7 +7,7 @@ function fetchweather(){
         const long = position.coords.longitude;
         document.getElementById("lat").innerHTML = Math.round(lat * 1000) / 1000 + degreeSymbol;
         document.getElementById("long").innerHTML = Math.round(long * 1000) / 1000 + degreeSymbol;
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${appKey}`)
+        fetch(`weather/${lat},${long}`)
         .then(response => response.json())
         .then(data =>{
             console.log(data);
