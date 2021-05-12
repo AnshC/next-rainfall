@@ -8,7 +8,8 @@ Rename '.env_sample' to '.env'
 ## NPM Packages utilized
 Nodemon,
 Express,
-dotenv
+dotenv,
+Node-fetch
 
 ## OpenWeatherMap API
 OpenWeatherMap API is a free weather APP that I used in this project.
