@@ -11,3 +11,5 @@ OpenWeatherMap API is a free weather APP that I used in this project.
 ## Geolocation API
 I also used the Geolocation API to automatically get the users coordinates in lattitude and longitude
 This may not work on some browsers and devices. 
+
+### Made by Ansh C (https://anshc.github.io)
