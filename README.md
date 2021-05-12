@@ -5,6 +5,11 @@ A simple Node.js app based off When Will It Rain Next (http://wwirn.glitch.me)
 Set API_KEY as your OpenWeatherMap API key.
 Rename '.env_sample' to '.env' 
 
+## NPM Packages utilized
+Nodemon
+Express
+dotenv
+
 ## OpenWeatherMap API
 OpenWeatherMap API is a free weather APP that I used in this project.
 
