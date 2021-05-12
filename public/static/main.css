@@ -41,11 +41,23 @@
 
 .location{
     display: flex;
+    flex-direction: column;
     align-self: flex-end;
+    align-items: flex-end;
 }
 
-.location *{
+.coordinates{
+    display: flex;
+}
+
+#address{
     padding: 1vw;
+    font-size: 20px;
+}
+
+.location .coordinates *{
+    padding: 1vw;
+    padding-bottom: 0;
     font-size: 20px;
 }
 

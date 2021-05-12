@@ -1,23 +1,51 @@
 const degreeSymbol = '°';
 
 function fetchweather(){
-    navigator.geolocation.getCurrentPosition(getPosition);
-    function getPosition(position){
-        const lat = position.coords.latitude;
-        const long = position.coords.longitude;
-        document.getElementById("lat").innerHTML = Math.round(lat * 1000) / 1000 + degreeSymbol;
-        document.getElementById("long").innerHTML = Math.round(long * 1000) / 1000 + degreeSymbol;
-        fetch(`weather/${lat},${long}`)
+    if(!navigator.geolocation) {
+        const city = prompt("Enter your city")
+        fetch(`city/${city}`)
         .then(response => response.json())
         .then(data =>{
-            console.log(data);
-            current(data.current);
-            raincheck(data.daily);
+            const lat = data.results[0].bounds.northeast.lat;
+            const long = data.results[0].bounds.northeast.lng;
+            const address = data.results[0].components.city + ", " + data.results[0].components.state;
+            document.getElementById("address").innerHTML = address;
+            document.getElementById("lat").innerHTML = Math.round(lat * 1000) / 1000 + degreeSymbol;
+            document.getElementById("long").innerHTML = Math.round(long * 1000) / 1000 + degreeSymbol;
+            fetch(`weather/${lat},${long}`)
+                .then(response => response.json())
+                .then(data =>{
+                console.log(data);
+                current(data.current);
+                raincheck(data.daily);
+            })
         })
-        .catch((err) =>{
-            console.log(err);
-        })
-    }
+      } else {
+            navigator.geolocation.getCurrentPosition(getPosition);
+            function getPosition(position){
+                const lat = position.coords.latitude;
+                const long = position.coords.longitude;
+                document.getElementById("lat").innerHTML = Math.round(lat * 1000) / 1000 + degreeSymbol;
+                document.getElementById("long").innerHTML = Math.round(long * 1000) / 1000 + degreeSymbol;
+                
+                fetch(`city/${lat},${long}`)
+                .then(response => response.json())
+                .then(data =>{
+                    const address = data.results[0].components.city + ", " + data.results[0].components.state;
+                    document.getElementById("address").innerHTML = address;
+                })
+                
+                fetch(`weather/${lat},${long}`)
+                .then(response => response.json())
+                .then(data =>{
+                current(data.current);
+                raincheck(data.daily);
+            })
+            .catch((err) =>{
+                console.log(err);
+            })
+        }
+      }
 }
 
 function current(current){
@@ -53,11 +81,9 @@ function raincheck(dayArray){
     var raintype = ""
     while (i < 7 && state === false){
         if(dayArray[i].weather[0].main == "Rain"){
-            console.log(dayArray[i].weather[0].main)
             state = true;
             rainDay = i;
             raintype = dayArray[i].weather[0].description;
-            console.log(rainDay);
         }
         i++;
     }
