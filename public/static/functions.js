@@ -41,9 +41,6 @@ function fetchweather(){
                 current(data.current);
                 raincheck(data.daily);
             })
-            .catch((err) =>{
-                console.log(err);
-            })
         }
       }
 }

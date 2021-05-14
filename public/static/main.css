@@ -9,14 +9,22 @@
     color:white;
 }
 
+body{
+    background-image: url("../img/default.jpg");
+    background-size: cover;
+}
+
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     width: 100%;
-    background-image: url("../img/default.png");
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+h1,h2,h3,p, #address{
+    text-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
 }
 
 .current{
@@ -63,6 +71,10 @@
 
 @media only screen and (max-width: 800px){
     .location{
+        flex-direction: column;
+    }
+    .location .coordinates{
+        display: flex;
         flex-direction: column;
     }
     .rain{
